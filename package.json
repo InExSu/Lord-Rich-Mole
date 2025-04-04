@@ -12,10 +12,7 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onStartupFinished",
-    "onCommand:lord-rich-mole.helloWorld",
-    "onCommand:lord-rich-mole.showTime",
-    "onCommand:lord-rich-mole.insertDateTime"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -44,7 +41,7 @@
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
-    "watch": "npm-run-all -p watch:*",
+    "watch": "tsc -watch -p ./",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
