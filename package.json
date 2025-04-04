@@ -19,7 +19,7 @@
     "commands": [
       {
         "command": "lord-rich-mole.helloWorld",
-        "title": "Hello World"
+        "title": "Lord Rich Mole Hello World"
       },
       {
         "command": "lord-rich-mole.showTime",
