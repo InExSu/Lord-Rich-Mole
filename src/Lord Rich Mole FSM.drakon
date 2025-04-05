@@ -1,0 +1,27 @@
+{
+    "items": {
+        "1": {
+            "type": "end"
+        },
+        "2": {
+            "type": "branch",
+            "branchId": 1,
+            "one": "4",
+            "content": "Ветка1"
+        },
+        "3": {
+            "type": "branch",
+            "content": "Завершение",
+            "one": "1",
+            "branchId": 3
+        },
+        "4": {
+            "type": "branch",
+            "content": "Ветка2",
+            "one": "3",
+            "branchId": 2
+        }
+    },
+    "type": "drakon",
+    "id": "Lord Rich Mole FSM.drakon"
+}

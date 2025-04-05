@@ -19,22 +19,11 @@
     "commands": [
       {
         "command": "lord-rich-mole.helloWorld",
-        "title": "Lord Rich Mole Hello World"
+        "title": "Lord Rich Mole Mermaid Code Generation"
       },
       {
         "command": "lord-rich-mole.showTime",
         "title": "Show Current Time"
-      },
-      {
-        "command": "lord-rich-mole.insertDateTime",
-        "title": "Insert Date and Time"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "lord-rich-mole.insertDateTime",
-        "key": "ctrl+shift+d",
-        "mac": "cmd+shift+d"
       }
     ]
   },

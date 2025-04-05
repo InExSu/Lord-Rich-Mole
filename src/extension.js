@@ -57,24 +57,9 @@ function activate(context) {
         const currentTime = new Date().toLocaleTimeString();
         vscode.window.showInformationMessage(`Текущее время: ${currentTime}`);
     });
-    // Команда для вставки даты и времени в текущую позицию курсора
-    const insertDateTimeCommand = vscode.commands.registerCommand('lord-rich-mole.insertDateTime', () => {
-        const editor = vscode.window.activeTextEditor;
-        if (editor) {
-            const currentDateTime = new Date().toLocaleString();
-            editor.edit(editBuilder => {
-                // Вставляем текст в текущую позицию курсора
-                editBuilder.insert(editor.selection.active, currentDateTime);
-            });
-        }
-        else {
-            vscode.window.showWarningMessage('Нет активного редактора для вставки даты и времени');
-        }
-    });
     // Добавляем все команды в подписки контекста
     context.subscriptions.push(helloWorldCommand);
     context.subscriptions.push(showTimeCommand);
-    context.subscriptions.push(insertDateTimeCommand);
 }
 // This method is called when your extension is deactivated
 function deactivate() { }

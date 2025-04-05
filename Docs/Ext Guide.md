@@ -13,7 +13,7 @@ yo code
 - Identifier: dsl-diagram-editor
 
 ### 2. Добавьте поддержку языка DSL
-Создайте файл синтаксиса:
+Создайте файл синтаксиса: 
 `/syntaxes/dsl-diagram.tmLanguage.json`
 ```json
 {
