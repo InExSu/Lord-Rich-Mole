@@ -1,26 +1,64 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { codeGeneration_PHP } from './codeGeneration';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "lord-rich-mole" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const helloWorldCommand = vscode.commands.registerCommand('lord-rich-mole.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Lord Rich Mole!');
-	});
+	const codeGeneration_PHPCommand = vscode.commands.registerCommand(
+		'lord-rich-mole.codeGeneration_PHP', 
+		handleCodeGenerationCommand
+	);
 
-	// Добавляем все команды в подписки контекста
-	context.subscriptions.push(helloWorldCommand);
+	context.subscriptions.push(codeGeneration_PHPCommand);
+}
+
+async function handleCodeGenerationCommand(): Promise<void> {
+	try {
+		const editor = getActiveEditor();
+		const document = editor.document;
+		const baseName = getBaseFileName(document);
+		const phpCode = generatePHPCode(document);
+		savePHPFile(baseName, phpCode);
+		showSuccessMessage(baseName);
+	} catch (error) {
+		if (error instanceof Error) {
+			vscode.window.showErrorMessage(`Ошибка: ${error.message}`);
+		}
+	}
+}
+
+function getActiveEditor(): vscode.TextEditor {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) {
+		throw new Error('Нет активного редактора!');
+	}
+	return editor;
+}
+
+function getBaseFileName(document: vscode.TextDocument): string {
+	const baseName = document.fileName.replace(/\.\w+$/, '');
+	vscode.window.showInformationMessage(`${baseName}.php`);
+	return baseName;
+}
+
+function generatePHPCode(document: vscode.TextDocument): string {
+	const text = document.getText();
+	return codeGeneration_PHP(text);
+}
+
+function savePHPFile(baseName: string, phpCode: string): void {
+	const uri = vscode.Uri.file(`${baseName}.php`);
+	vscode.workspace.fs.writeFile(uri, Buffer.from(phpCode));
+}
+
+function showSuccessMessage(baseName: string): void {
+	vscode.window.showInformationMessage(
+		`PHP код успешно сгенерирован в файл ${baseName}.php`
+	);
 }
 
 // This method is called when your extension is deactivated

@@ -16,14 +16,15 @@
 ```mermaid
 stateDiagram-v2
     %% Признак кода PHP
-    %% LRM generate: PHP
+    %% LRM code generate: PHP
     [*] --> s1
     s1 --> s2 : f1
     s1 --> s2 : f2
     s2 --> [*]
 ```
+в прямоугольниках - состояния, в стрелках - функции.
 
-Из этой диаграммы нужно сгенерировать код PHP:
+TypeScript функция codeGeneration_PHP(s) из строки кода mermaid будет генерировать код PHP:
 ```php
 <?php
 
@@ -83,5 +84,7 @@ if (function_exists('pcntl_fork')) {
 }
 
 echo "Final state: $currentState\n";
+```
+
 ```
 И сохранить его в файл с таким же именем, но с расширением .php.

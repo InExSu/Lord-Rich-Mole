@@ -12,13 +12,14 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onCommand:lord-rich-mole.codeGeneration_PHP"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "lord-rich-mole.helloWorld",
+        "command": "lord-rich-mole.codeGeneration_PHP",
         "title": "Lord Rich Mole Mermaid Code Generation"
       }
     ]
