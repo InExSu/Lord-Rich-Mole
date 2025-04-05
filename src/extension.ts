@@ -19,16 +19,8 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from Lord Rich Mole!');
 	});
 
-	// Команда для отображения текущего времени
-	const showTimeCommand = vscode.commands.registerCommand('lord-rich-mole.showTime', () => {
-		const currentTime = new Date().toLocaleTimeString();
-		vscode.window.showInformationMessage(`Текущее время: ${currentTime}`);
-	});
-
-
 	// Добавляем все команды в подписки контекста
 	context.subscriptions.push(helloWorldCommand);
-	context.subscriptions.push(showTimeCommand);
 }
 
 // This method is called when your extension is deactivated

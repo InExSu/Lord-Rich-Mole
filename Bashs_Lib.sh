@@ -8,3 +8,4 @@ sudo chown -R michaelpopov: staff /Users/michaelpopov/Documents/GitHub/TypeScrip
 
 # вывести дерево прооекта без node_modules
 find . -name node_modules -prune -o -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+

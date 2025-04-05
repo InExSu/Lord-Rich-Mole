@@ -20,10 +20,6 @@
       {
         "command": "lord-rich-mole.helloWorld",
         "title": "Lord Rich Mole Mermaid Code Generation"
-      },
-      {
-        "command": "lord-rich-mole.showTime",
-        "title": "Show Current Time"
       }
     ]
   },
